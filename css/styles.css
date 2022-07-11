@@ -11,6 +11,7 @@
   --inactive-icon-color: #afb1b8;
   --items: 3;
   --indent: 30px;
+  --anim: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body {
@@ -133,7 +134,7 @@ p {
   line-height: 1.14;
   letter-spacing: 0.02em;
 
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color var(--anim);
 }
 
 .current-link {
@@ -178,7 +179,7 @@ p {
   line-height: 1.14;
   letter-spacing: 0.02em;
 
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color var(--anim);
 }
 
 .nav-link:hover,
@@ -244,7 +245,7 @@ p {
 
   cursor: pointer;
 
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color var(--anim);
 }
 
 .hero-button:hover,
@@ -268,7 +269,7 @@ p {
   width: 100%;
   background-color: var(--background-white-color);
 
-  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: box-shadow var(--anim);
 }
 
 .pecs-item:hover .pecs-logo,
@@ -395,8 +396,7 @@ p {
   border-radius: 50%;
   color: var(--inactive-icon-color);
 
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color var(--anim), background-color var(--anim);
 }
 
 .socials-link:hover,
@@ -429,8 +429,7 @@ p {
   border: 1px solid var(--inactive-icon-color);
   border-radius: 4px;
 
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color var(--anim), border-color var(--anim);
 }
 
 .clients-link:hover,
@@ -472,8 +471,7 @@ p {
 
   cursor: pointer;
 
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1), color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color var(--anim), box-shadow var(--anim), color var(--anim);
 }
 
 .active-button {
@@ -492,7 +490,7 @@ p {
 
 .examples-link {
   display: block;
-  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: box-shadow var(--anim);
 }
 
 .examples-link:hover,
@@ -517,7 +515,7 @@ p {
 
   transform: translateY(100%);
 
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform var(--anim);
   background-color: var(--accent-color-tranparent);
 }
 
@@ -612,7 +610,7 @@ p {
   font-size: 14px;
   line-height: 1.17;
 
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color var(--anim);
 }
 
 .footer-link:hover,
@@ -647,7 +645,7 @@ p {
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.1);
 
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color var(--anim);
 }
 
 .footer-socials-icon {
@@ -659,13 +657,13 @@ p {
   background-color: var(--accent-color);
 }
 
-.subscribe {
+.subscribe-form {
   display: flex;
   align-items: flex-end;
   margin-left: auto;
 }
 
-.subscribe-text {
+.subscribe-label {
   display: block;
   margin-bottom: 20px;
 
@@ -687,16 +685,22 @@ p {
 
   background-color: var(--primary-grey-color);
   color: var(--white-text-color);
-
+  outline: 1px solid transparent;
   border: 1px solid rgba(255, 255, 255, 0.3);
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
   border-radius: 4px;
+  transition: outline-color var(--anim);
+}
+
+.subscribe-input:focus-within {
+  outline-color: #fff;
 }
 
 .subscribe-btn {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 10px;
   margin-bottom: 0;
   margin-left: 12px;
   min-width: 200px;
@@ -712,7 +716,7 @@ p {
   letter-spacing: 0.06em;
 
   cursor: pointer;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color var(--anim);
 }
 
 .subscribe-btn:hover,
@@ -721,7 +725,6 @@ p {
 }
 
 .subscribe-btn-icon {
-  margin-left: 10px;
   fill: var(--white-text-color);
 }
 
@@ -737,8 +740,7 @@ p {
 
   opacity: 1;
 
-  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity var(--anim), visibility var(--anim);
 }
 
 .is-hidden {
@@ -760,16 +762,17 @@ p {
   min-height: 581px;
   padding: 40px;
   background-color: var(--white-text-color);
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform var(--anim);
 }
 
 .modal-close {
   position: absolute;
-  top: 8px;
-  right: 8px;
+  top: 0;
+  right: 0;
   display: flex;
   align-items: center;
   justify-content: center;
+  transform: translate(50%, -50%);
   width: 30px;
   height: 30px;
   border: 1px solid rgba(0, 0, 0, 0.1);
@@ -780,19 +783,15 @@ p {
 }
 
 .modal-close-icon {
-  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: fill var(--anim);
 }
 
 .modal-close:hover .modal-close-icon {
   fill: var(--accent-color);
 }
 
-.form {
-  margin-bottom: 20px;
-}
-
 .modal-title {
-  margin-bottom: 12px;
+  margin-bottom: 30px;
   font-weight: 700;
   font-size: 20px;
   line-height: 1.15;
@@ -804,17 +803,25 @@ p {
 .modal-field {
   position: relative;
   display: block;
-  margin-bottom: 10px;
+  margin-bottom: 28px;
 }
 
-.modal-field-text {
-  display: block;
-  margin-bottom: 4px;
+.modal-field-label {
+  position: absolute;
+  top: 50%;
+  left: 42px;
+  transform: translateY(-50%) scale(1.2);
   font-size: 12px;
   line-height: 1.167;
   letter-spacing: 0.01em;
 
   color: var(--secondary-text-color);
+
+  transition: transform var(--anim);
+}
+
+.modal-field:focus-within > .modal-field-label {
+  transform: translate(-42px, -270%) scale(1);
 }
 
 .modal-field-input {
@@ -824,15 +831,38 @@ p {
   padding-left: 42px;
   border: 1px solid rgba(33, 33, 33, 0.2);
   border-radius: 4px;
+  font-size: 14px;
+  line-height: 1.167;
+  letter-spacing: 0.01em;
   color: var(--primary-text-color);
 
-  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: border var(--anim);
+}
+
+.modal-field-input::placeholder,
+.modal-field-textarea::placeholder {
+  font-size: 12px;
+  line-height: 1.167;
+  letter-spacing: 0.01em;
+
+  color: rgba(117, 117, 117, 0.5);
+  opacity: 0;
+  transition: opacity var(--anim);
+}
+
+.modal-field-input:not(:placeholder-shown) + .modal-field-label {
+  transform: translate(-42px, -270%);
 }
 
 .modal-field:focus-within > .modal-field-input,
-.modal-field:focus-within > .modal-field-input-comment {
+.modal-field:focus-within > .modal-field-textarea {
   border: 1px solid var(--accent-color);
   outline: 1px solid transparent;
+}
+
+.modal-field:focus-within > .modal-field-input::placeholder,
+.modal-field:focus-within > .modal-field-textarea::placeholder {
+  opacity: 1;
 }
 
 .modal-field:focus-within > .modal-field-icon {
@@ -843,26 +873,54 @@ p {
   position: absolute;
   top: 50%;
   left: 12px;
-  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateY(-50%);
+  transition: fill var(--anim);
 }
 
-.modal-field-input-comment {
+.comments-field {
+  margin-bottom: 20px;
+}
+
+.modal-field-textarea {
   width: 100%;
   height: 120px;
   padding: 12px 16px;
   border: 1px solid rgba(33, 33, 33, 0.2);
   border-radius: 4px;
   resize: none;
-
+  font-size: 14px;
+  line-height: 1.167;
+  letter-spacing: 0.01em;
   color: var(--primary-text-color);
-  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: border var(--anim);
 }
 
+.modal-field-textarea:not(:placeholder-shown) + .comments-label {
+  transform: translate(-16px, -210%);
+}
+
+.comments-label {
+  position: absolute;
+  top: 12px;
+  left: 24px;
+  font-size: 12px;
+  line-height: 1.167;
+  letter-spacing: 0.01em;
+
+  color: var(--secondary-text-color);
+  transform: translate(0) scale(1.2);
+  transition: transform var(--anim);
+}
+
+.modal-field:focus-within > .comments-label {
+  transform: translate(-24px, -210%) scale(1);
+}
 .modal-check {
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
   margin-bottom: 30px;
+  gap: 8px;
 }
 
 .modal-check-input {
@@ -872,12 +930,11 @@ p {
 
 .modal-check-icon {
   width: 16px;
-  height: 16px;
-  border: 2px solid var(--primary-text-color);
+  height: 15px;
+  outline: 2px solid var(--primary-text-color);
+  outline-offset: -2px;
   border-radius: 4px;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  cursor: pointer;
+  transition: background-color var(--anim), outline-color var(--anim);
 }
 
 .modal-check-content {
@@ -886,14 +943,13 @@ p {
 
 .modal-check-input:checked + .modal-check-icon {
   background-color: var(--accent-color);
-  border-color: transparent;
+  outline-color: transparent;
 }
 
 .modal-check-text {
   font-size: 14px;
   line-height: 1.71;
   color: var(--secondary-text-color);
-  cursor: pointer;
 }
 
 .modal-check-link {
@@ -918,7 +974,7 @@ p {
   letter-spacing: 0.06em;
 
   cursor: pointer;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color var(--anim);
 }
 
 .modal-btn:hover,
