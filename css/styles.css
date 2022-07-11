@@ -896,7 +896,7 @@ p {
 }
 
 .modal-field-textarea:not(:placeholder-shown) + .comments-label {
-  transform: translate(-16px, -210%);
+  transform: translate(-24px, -210%);
 }
 
 .comments-label {
